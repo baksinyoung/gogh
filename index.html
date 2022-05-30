@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>빈센트 반 고흐</title>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("header button").click(function(){
+				if($("nav").css("display")=="none"){
+					$("nav").slideDown();
+					$(this).text("close");
+				}else{
+					$("nav").slideUp();
+					$(this).text("menu");
+				}
+			});
+			
+			/* 이렇게 해도 됨
+			let i = 0;
+			$("header button").click(function(){
+				i++;
+				if( i==1 ){
+					$("nav").slideDown();
+					$(this).text("close");
+				}else{
+					$("nav").slideUp();
+					$(this).text("menu");
+					i = 0;
+				}		
+			});
+			*/
+		});
+		
+		</script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<style>
+			* {margin:0; padding:0; box-sizing:border-box;}
+			body {background:black; font:10pt "나눔고딕"; }
+			img {display:block; max-width:100%;}
+			
+			
+			#layout {position:relative; width:414px; margin:auto;}
+			
+			/*상단 헤더*/
+			header {display:flex; padding:15px; padding-top:25px; border-bottom:2px solid gray;}
+			header h1 {flex:1;}
+			header h1 img {margin:auto;}  /*text-align:center가 아닌 margin:auto를 한 이유: img를 blcok처리 했기 때문 inline 요소만 text-align:center할 수 있음*/
+			header button {color:white; font-size:2.5rem; background:transparent; border:none;}
+			
+			/*네비게이션*/
+			nav {background:#162039; position:absolute; width:100%; padding:30px 0px; display:none;}
+			nav a {color:white; text-decoration:none; font-size:1.15rem; display:block; margin-left:8px;} /*display:block; 클릭가능한 범위를 글자 보다 조금 더 넓게 하려고*/
+			nav ul {line-height:450%; padding-left:15%; color:white; list-style-image:url("images/icon_star.jpg");}
+			
+			/*콘텐츠*/
+			section {border:1px solid blue;}
+			section h2 {display:none;}
+		</style>
+	</head>
+	<body>
+		<div id="layout">
+			<header>
+				<h1><a href="index.html"><img src="images/logo.jpg" alt="빈센트 반 고흐"></a></h1>
+				<button type="button" class="material-icons">menu</button>
+			</header>
+			<nav>
+				<ul>
+					<li><a href="history.html">빈센트 반 고흐</a></li>
+					<li><a href="life.html">그의 일생</a></li>
+					<li><a href="art.html">그의 작품</a></li>
+					<li><a href="display.html">빈센트 반 고흐 전시회</a></li>
+				</ul>		
+			</nav>
+			<section>
+				<h2>메인</h2>
+				<img src="images/main.jpg" alt="유화-별이 빛나는 밤에">
+			</section>
+		</div>	
+	</body>
+</html>
