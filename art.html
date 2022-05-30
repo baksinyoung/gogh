@@ -35,12 +35,12 @@
 				
 				$("#popup h2").text(imgAlt); //set(설정)
 				$("#popup img").attr("src", imgSrc); //set(설정)
-				$("#popup").fadeIn();
+				$("#popup").stop().fadeIn();
 				$("body").css("overflow","hidden");
 			});
 			//팝업창 닫기
 			$("#popup button").click(function(){
-				$("#popup").fadeOut();
+				$("#popup").stop().fadeOut();
 				$("body").css("overflow","auto");
 			});
 			
