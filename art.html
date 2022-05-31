@@ -25,23 +25,25 @@
 			let imgSrc = "";
 			let imgAlt = "";
 			$("#arts button").click(function(){
-				imgSrc = $(this).children().attr("src");//get(얻다)
-				console.log(imgSrc);//"images/art_01.jpg"
+				imgSrc = $(this).children().attr("src");//get(얻다)    attr("html 속성"): htmml의 속성 값을 가져온다.
+				//console.log(imgSrc);//"images/art_01.jpg"
 				
 				imgSrc = imgSrc.replace(".jpg","_big.jpg");
-				console.log(imgSrc);//"images/art_01_big.jpg"
+				//console.log(imgSrc);//"images/art_01_big.jpg"
 				
 				imgAlt = $(this).children().attr("alt");//get(얻다)
 				
 				$("#popup h2").text(imgAlt); //set(설정)
 				$("#popup img").attr("src", imgSrc); //set(설정)
-				$("#popup").stop().fadeIn();
+				$("#popup").fadeIn();
 				$("body").css("overflow","hidden");
+
 			});
 			//팝업창 닫기
-			$("#popup button").click(function(){
-				$("#popup").stop().fadeOut();
+			$("#popup button,img").click(function(){   //이미지랑 x 버튼 둘 다 적용 하고 싶을 때는 , 를 써서 사용가능
+				$("#popup").fadeOut();
 				$("body").css("overflow","auto");
+
 			});
 			
 			
@@ -64,20 +66,20 @@
 			header button {color:white; font-size:2.5rem; background:transparent; border:none;}
 
 			/*내비게이션*/
-			nav {background:#162039; position:absolute; width:100%; padding:30px 0px; display:none;}
+			nav {background:#162039; position:absolute; width:100%; padding:30px 0px; display:none; z-index:1;}  /*transform 사용하려면 z-index 정해줘야함*/
 			nav a {color:white; text-decoration:none; font-size:1.15rem; display:block; margin-left:8px;} /*display:block; 클릭가능한 범위를 글자 보다 조금 더 넓게 하려고*/
 			nav ul {line-height:450%; padding-left:15%; color:white; list-style-image:url("images/icon_star.jpg");}
 
 			/*콘텐츠*/
 			#arts h2 {display:none;}
-			#arts div {display:flex; flex-wrap:wrap;}
+		#arts div {display:flex; 	flex-wrap:wrap;} /*flex-wrap:wrap :3개씩 배열하고 다음줄에 또 3개 나열/display가 flex여야 사용가능 */
 			#arts button {background:transparent; border:none; display:block; }
 
 			/*팝업*/
 			#popup {position:absolute; top:0px; display:none; height:100vh; overflow:auto;}
-			#popup div {display:flex; align-items:center; background:black; padding:10px;}
+			#popup div {display:flex; align-items:center; background:black; padding:10px;} /*align-items:center 세로정렬 가운데 start or end*/
 			#popup h2 {flex:1; color:white; font-size:1.1rem; font-weight:normal;}
-			#popup button {color:gray; font-size:1.6rem; background:transparent; border:none;}
+			#popup button {color:gray; font-size:1.6rem; background:transparent; border:none;}/*background:transparent 배경 투명하게*/
 		</style>
 	</head>
 	<body>	
